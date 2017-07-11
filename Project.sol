@@ -1,24 +1,5 @@
 pragma solidity ^0.4.0;
 
-/*
-
-{
-    created: '2017-05-09T16:47:49.016Z',
-    buyer: 'buyer1',
-    name: 'T-Shirts with logo',
-    description: 'The T-Shirts with our company\'s logo on the chest, Qty: 50',
-    priceDesired: 800.10,
-    desiredDeliveryDate: '2017-05-20T16:47:49.016Z',
-    addressStreet: '109 S 5th street',
-    addresscity: 'Brooklyn',
-    addressstate: 'New York',
-    addresszip: '11249',
-    spec: 'Lorem ipsum dolor sit amet, eam molestie singulis referrentur',
-    state: 'OPEN',
-    deliveredDate: null // filled when the 'RECEIVED' button clicked
-  }
-*/
-
 /**
  * Project data contract
  */
@@ -26,7 +7,7 @@ contract Project {
   enum ErrorCodes { NULL, SUCCESS, ERROR, NOT_FOUND, EXISTS, RECURSIVE, INSUFFICIENT_BALANCE }
   ErrorCodes public errorCodes;
   enum ProjectState { NULL, OPEN, PRODUCTION, INTRANSIT, RECEIVED }
-  ProjectState public state;
+  //ProjectState public state;
   // NOTE: members must be public to be indexed for search
   string public name;
   string public buyer;
