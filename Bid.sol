@@ -47,7 +47,7 @@ contract Bid  {
     uint amountWei = amount * 1 ether;
 
     // transfer will throw
-    supplierAddress.send(amountWei-fee);
+    supplierAddress.transfer(amountWei-fee);
     return ErrorCodes.SUCCESS;
   }
 }
