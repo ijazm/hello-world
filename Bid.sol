@@ -1,5 +1,5 @@
 pragma solidity ^0.4.0;
-contract Bid is ErrorCodes, BidState {
+contract Bid  {
   // NOTE: members must be public to be indexed for search
   uint public id;
   string public name;
