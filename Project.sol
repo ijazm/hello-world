@@ -13,7 +13,7 @@ contract Project  {
   string public description;
   uint public price;
 
-  function Project( string _name, string _buyer, string _description, uint _price,) {
+  function Project( string _name, string _buyer, string _description, uint _price) {
     name = _name;
     buyer = _buyer;
     description = _description;
