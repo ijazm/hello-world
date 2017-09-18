@@ -2,13 +2,14 @@ pragma solidity ^0.4.11;
 contract UserMgmt {
 
   struct UserStruct {
-      uint role;
       uint index;
+      uint appId;
+      string tag;
   }
 
   enum UserRole { SUBMIT }
   UserRole public userRole;
-
+  
   mapping(address => UserStruct) private userStructs;
   address[] private userIndex;
 
@@ -17,10 +18,11 @@ contract UserMgmt {
       return (userIndex[userStructs[userAddress].index] == userAddress);
   }
 
-  function insertUser(address userAddress ) public returns(bool) {
+  function insertUser(address userAddress, uint id, string tag ) public returns(bool) {
       if(userIndex.length == 0) {
           userStructs[userAddress].index = userIndex.push(userAddress)-1;
-          userStructs[userAddress].role = uint256(UserRole.SUBMIT);
+          userStructs[userAddress].appId = id;
+          userStructs[userAddress].tag = tag;
           return true;
       }
       else {
@@ -29,16 +31,18 @@ contract UserMgmt {
           }
           else {
               userStructs[userAddress].index = userIndex.push(userAddress)-1;
-              userStructs[userAddress].role = uint256(UserRole.SUBMIT);
+              userStructs[userAddress].appId = id;
+              userStructs[userAddress].tag = tag;
               return true;
           }
       }
   }
-
+  
   function getUser(address userAddress) public constant returns( uint index) {
-    if(!checkUser(userAddress)) throw;
+    if(!checkUser(userAddress)) throw; 
     return(userStructs[userAddress].index);
-  }
+  } 
+  
   function getUserCount() public constant returns(uint count) {
       return userIndex.length;
   }
