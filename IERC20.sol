@@ -1,3 +1,5 @@
+pragma solidity ^0.4.13
+
 interface IERC20 {
     function totalSupply() constant returns (uint256 totalSupply);
     function balanceOf(address _owner) constant returns (uint256 balance);
